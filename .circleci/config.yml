@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/tableman
+
+    docker:
+      - image: circleci/openjdk:8-jdk-browsers
+
+    steps:
+
+      - checkout
+
+      - run: mvn
+
+      - store_test_results:
+          path: target/surefire-reports
+
+      - store_artifacts:
+          path: target/tableman.jar
+
+      - store_artifacts:
+          path: target/tableman-site.jar
