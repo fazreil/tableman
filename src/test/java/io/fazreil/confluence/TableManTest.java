@@ -26,11 +26,11 @@ public class TableManTest {
 	public void testSlurpTableString() {
 		try {
 			tableMan.slurpTable(tableInString);
+			assertFalse(null == tableMan.getDoc());
 		}
 		catch(Exception ex) {
 			fail(ex.getMessage());
 		}
-		assertFalse(null == tableMan.getDoc());
 	}
 	
 	@Test
@@ -43,6 +43,7 @@ public class TableManTest {
 			ex.printStackTrace();
 			fail(ex.getMessage());
 		}
+		assertFalse(tableMan.reconstructDocIntoString() != tableInString);
 	}
 
 	@Test
@@ -54,22 +55,38 @@ public class TableManTest {
 		catch(Exception ex) {
 			fail(ex.getMessage());			
 		}
+		assertFalse(null == tableMan);
 	}
 
 	@Test
 	public void testReconstructDocIntoString() {
-		tableMan.slurpTable(tableInString);
-		assertFalse(tableMan.reconstructDocIntoString().getClass().isInstance(String.class));
+		try {	
+			tableMan.slurpTable(tableInString);
+			assertFalse(tableMan.reconstructDocIntoString().getClass().isInstance(String.class));
+		}
+		catch(Exception ex) {
+			fail(ex.getMessage());
+		}
 	}
 
 	@Test
 	public void testGetDoc() {
-		assertFalse(null == tableMan.getDoc());
+		try{
+			assertFalse(null == tableMan.getDoc());
+		}
+		catch(Exception ex) {
+			fail(ex.getMessage());
+		}
 	}
 
 	@Test
 	public void testMain() {
-		fail("Not yet implemented");
+		try{
+			TableMan.main("test");
+		}
+		catch(Exception ex) {
+			fail(ex.getMessage());
+		}
 	}
 
 }
