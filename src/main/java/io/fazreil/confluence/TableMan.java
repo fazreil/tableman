@@ -18,6 +18,11 @@ import org.jsoup.parser.Parser;
 public class TableMan 
 {
 	/**
+	 * the html table in the form of document
+	 */
+	private Document tableDoc;
+	
+	/**
      * This function takes table and new row element in String HTML format to become a valid DOM
      * @param tableInString representing the table String 
      * @param newRowInString representing the new row String 
@@ -97,7 +102,24 @@ public class TableMan
     {    	
     	return inDocument.html();
     }
-        
+    
+    /**
+     * get for Document doc
+     * @return tableDoc the table document itself
+     */        
+	public Document getTableDoc() {
+		return tableDoc;
+	}
+	
+	 /**
+     * set for Document doc
+     * @param tableDoc an instance of document like itself
+     */
+
+	public void setTableDoc(Document tableDoc) {
+		this.tableDoc = tableDoc;
+	}
+
 	/**
      * main program
      * @param args some arguments
