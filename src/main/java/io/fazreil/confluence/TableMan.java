@@ -29,9 +29,8 @@ public class TableMan
      */
     public Document slurpTable(String tableInString) 
     {
-    	Document doc;		
+    	Document doc = null;		
     	doc = Jsoup.parse(tableInString, "UTF-8", Parser.xmlParser());
-		setTableDoc(doc);
 		return doc;
     }
     
