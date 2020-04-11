@@ -23,21 +23,16 @@ public class TableMan
 	private Document tableDoc;
 	
 	/**
-     * This function takes table and new row element in String HTML format to become a valid DOM
+     * This function takes table in String HTML format to become a valid DOM
      * @param tableInString representing the table String 
-     * @param newRowInString representing the new row String 
-     * @return docList which is a list of Document consisting of table and row string which 
-     * is transformed into Document
+     * @return doc the document after slurping
      */
-    public List<Document> slurpTable(String tableInString, String newRowInString) 
+    public Document slurpTable(String tableInString) 
     {
-    	List<Document> docList = new ArrayList<>();
-    	Document doSampleContentStr, docSampleNewRowStr;		
-		doSampleContentStr = Jsoup.parse(tableInString, "UTF-8", Parser.xmlParser());
-		docSampleNewRowStr = Jsoup.parse(newRowInString,"UTF-8", Parser.xmlParser());
-    	docList.add(doSampleContentStr);
-    	docList.add(docSampleNewRowStr);
-		return docList;
+    	Document doc;		
+    	doc = Jsoup.parse(tableInString, "UTF-8", Parser.xmlParser());
+		setTableDoc(doc);
+		return doc;
     }
     
     /**
