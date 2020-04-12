@@ -68,7 +68,7 @@ public class TableMan
     /**
      * This function is to takes the new row element from a file to be inserted into the 
      * table element of the table Document
-     * @param inNewRowDoc representing the new table row to insert into the existing table
+     * @param newRowInFile representing the new table row to insert into the existing table
      * @return doc which is a Document consisting of the newly inserted row to the
      * existing table
      */
