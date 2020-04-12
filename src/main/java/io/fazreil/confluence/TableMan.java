@@ -54,17 +54,17 @@ public class TableMan
     }
     
     /**
-     * This function is to takes the row element in the form of Document to be inserted
-     * into the table element of the Document
-     * @param inTableDoc representing the existing table
-     * @param inNewRowDoc representing the new table row to insert into the existing table
-     * @return inTableDoc which is a Document consisting of the newly inserted row to the
+     * This function is to takes the new row element to be inserted into the table element
+     * of the table Document
+     * @param newRowInStr representing the new table row to insert into the existing table
+     * @return doc which is a Document consisting of the newly inserted row to the
      * existing table
      */
-    public Document insertIntoElement(Document inTableDoc, Document inNewRowDoc) 
+    public Document insertIntoElement(String newRowInStr) 
     {
-    	inTableDoc.select("tbody").first().children().next().before(inNewRowDoc.toString());
-    	return inTableDoc;
+    	Document doc = getTableDoc();
+    	doc.select("tbody").first().children().next().before(newRowInStr);
+    	return doc;
     }
     
     /** 
