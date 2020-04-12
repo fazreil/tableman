@@ -142,8 +142,8 @@ public class TableMan
 		tblMan.print();
 				
 		// Input of HTML table and new row element from File	
-		Path tableInFile = Paths.get("C:\\Users\\naree\\Documents\\GitHub\\tableman\\sample-content.xml");
-		Path newRowInFile = Paths.get("C:\\Users\\naree\\Documents\\GitHub\\tableman\\sample-new-row.xml");	
+		Path tableInFile = Paths.get(".\\sample-content.xml");
+		Path newRowInFile = Paths.get(".\\sample-new-row.xml");	
 		String htmlFile = null;
 		
 		tblMan.setTableDoc(tblMan.slurpTable(tableInFile));
