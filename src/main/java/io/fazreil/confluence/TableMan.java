@@ -35,32 +35,22 @@ public class TableMan
     }
     
     /**
-     * This function takes the file path for which the table and new row element is in 
-     * String HTML format to become a valid DOM
+     * This function takes the  HTML table file path to become a valid DOM
      * @param tableInFile representing the file path for which contains the table String 
-     * @param newRowInFile representing the file path for which  contains the new row String 
-     * @return docList which is a list of Document consisting of table and row string which 
-     * was transformed into Document
+     * @return doc the document after slurping
      */
-    public List<Document> slurpTable(Path tableInFile, Path newRowInFile) {
-    	List<Document> docList = new ArrayList<>();
-    	String sampleContentFileStr = null, sampleNewRowFileStr = null;
-		Document doSampleContentFileEscape = null, docSampleNewRowFileEscape = null;	
+    public Document slurpTable(Path tableInFile) 
+    {
+    	String tableInFileStr = null;
+		Document doc = null;	
 		try {
-			sampleContentFileStr = new String(Files.readAllBytes(tableInFile), StandardCharsets.UTF_8);
-			sampleNewRowFileStr  = new String(Files.readAllBytes(newRowInFile), StandardCharsets.UTF_8);
-			sampleContentFileStr = sampleContentFileStr.replace("\\\"", "\"");
-			sampleNewRowFileStr = sampleNewRowFileStr.replace("\\\"", "\"");			
-			doSampleContentFileEscape = Jsoup.parse(sampleContentFileStr, "UTF-8", Parser.xmlParser());
-			docSampleNewRowFileEscape = Jsoup.parse(sampleNewRowFileStr, "UTF-8", Parser.xmlParser());			
-			docList.add(doSampleContentFileEscape);
-	    	docList.add(docSampleNewRowFileEscape);
-		
+			tableInFileStr = new String(Files.readAllBytes(tableInFile), StandardCharsets.UTF_8);
+			tableInFileStr = tableInFileStr.replace("\\\"", "\"");
+			doc = Jsoup.parse(tableInFileStr, "UTF-8", Parser.xmlParser());			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
-		return docList;
+		return doc;
     }
     
     /**
