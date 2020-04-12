@@ -20,7 +20,7 @@ public class TableMan
 	/**
 	 * the html table in the form of document
 	 */
-	private Document tableDoc;
+	private Document tableDoc = null;
 	
 	/**
      * This function takes table in String HTML format to become a valid DOM
