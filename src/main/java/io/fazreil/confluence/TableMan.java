@@ -90,12 +90,11 @@ public class TableMan
     
     /** 
      * This function prints the structure of the table in the html format
-     * @param inDocument take the input parameter as a Document
      * 
      */
-    public void print(Document inDocument) 
+    public void print() 
     {
-    	System.out.println(inDocument.html());
+    	System.out.println(getTableDoc().html());
     }
 
     /**
