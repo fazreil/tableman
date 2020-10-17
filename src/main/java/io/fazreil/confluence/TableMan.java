@@ -9,8 +9,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 
-import io.fazreil.confluence.table.Table;
-
 /**
  * This class manipulates the Table class.
  *
@@ -18,17 +16,17 @@ import io.fazreil.confluence.table.Table;
 public class TableMan 
 {
 	/**
-	 * the html table
+	 * the html table in the form of document
 	 */
-	private Table doc;
+	private Document tableDoc = null;
     
     /**
      * This function takes table in html format in a form of String to become a valid xml DOM
      * @param tableInString the String representing table for the class to slurp
      * @return doc the document after slurping
      */
-    public Table slurpTable(String tableInString) {
-    	Table doc = null;
+    public Document slurpTable(String tableInString) {
+    	Document doc = null;
     	return doc;
     }
     
@@ -37,8 +35,8 @@ public class TableMan
      * @param tableInFile the File representing table for the class to slurp
      * @return doc the document after slurping
      */
-    public Table slurpTable(File tableInFile) {
-    	Table doc = null;
+    public Document slurpTable(File tableInFile) {
+    	Document doc = null;
     	return doc;
     }
     /**
@@ -88,21 +86,21 @@ public class TableMan
     	}
     	return emptyElement;
     }
-    
-    /**
-     * pojo get for Document doc
-     * @return doc the document itself
-     */
-    public Table getDoc() {
-		return doc;
-	}
 
     /**
-     * poje set for Document doc
-     * @param doc an instance of document like itself
+     * get for Document doc
+     * @return tableDoc the table document itself
+     */        
+	public Document getTableDoc() {
+		return tableDoc;	
+	}
+
+	/**
+     * set for Document doc
+     * @param tableDoc an instance of document like itself
      */
-	public void setDoc(Table doc) {
-		this.doc = doc;
+	public void setTableDoc(Document tableDoc) {
+		this.tableDoc = tableDoc;	
 	}
 
 	/**
