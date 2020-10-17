@@ -4,12 +4,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.w3c.dom.DOMException;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.parser.Parser;
@@ -108,28 +102,6 @@ public class TableMan
     	String docInString = null;
     	
     	return docInString;
-    }
-    
-    /**
-     * This function takes a string in xml form and transform it into a node.
-     * @param stringOfXML
-     * @return emptyElement an empty element
-     */
-    private Node formANodeFromString(String stringOfXML) {
-    	Node tableRowInNode = null;
-    	
-    	return tableRowInNode;
-    }
-    
-    public static Element createEmptyElement() {
-    	Element emptyElement = null;
-    	try {
-			emptyElement = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument().createElement("empty");
-		}
-    	catch(Exception ex) {
-    		ex.printStackTrace();
-    	}
-    	return emptyElement;
     }
 
     /**
