@@ -92,11 +92,12 @@ public class TableMan
     }
 
     /** 
-     * Prints the structure of the table
+     * This function prints the structure of the table in the html format
      * 
      */
-    public void print() {
-    	
+    public void print() 
+    {
+    	System.out.println(getTableDoc().html());
     }
 
     /**
