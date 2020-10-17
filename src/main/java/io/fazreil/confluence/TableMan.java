@@ -69,7 +69,28 @@ public class TableMan
     	doc.select("tbody").first().children().next().before(newRowInStr);
     	return doc;
     }
-    
+
+    /**
+     * This function is to takes the new row element from a file to be inserted into the 
+     * table element of the table Document
+     * @param newRowInFile representing the new table row to insert into the existing table
+     * @return doc which is a Document consisting of the newly inserted row to the
+     * existing table
+     */
+    public Document insertIntoElement(Path newRowInFile) 
+    {
+    	Document doc = getTableDoc();
+    	String inNewRowStr = null;
+    	try {
+			inNewRowStr  = new String(Files.readAllBytes(newRowInFile), StandardCharsets.UTF_8);
+			inNewRowStr = inNewRowStr.replace("\\\"", "\"");
+			doc.select("tbody").first().children().next().before(inNewRowStr);
+    	} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} 
+    	return doc;
+    }
+
     /** 
      * Prints the structure of the table
      * 
