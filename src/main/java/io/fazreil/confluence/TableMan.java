@@ -5,9 +5,12 @@ import java.io.File;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.w3c.dom.DOMException;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.parser.Parser;
 
 /**
  * This class manipulates the Table class.
@@ -20,14 +23,16 @@ public class TableMan
 	 */
 	private Document tableDoc = null;
     
-    /**
-     * This function takes table in html format in a form of String to become a valid xml DOM
-     * @param tableInString the String representing table for the class to slurp
+	/**
+     * This function takes table in String HTML format to become a valid DOM
+     * @param tableInString representing the table String 
      * @return doc the document after slurping
      */
-    public Document slurpTable(String tableInString) {
-    	Document doc = null;
-    	return doc;
+    public Document slurpTable(String tableInString) 
+    {
+    	Document doc = null;		
+    	doc = Jsoup.parse(tableInString, "UTF-8", Parser.xmlParser());
+		return doc;
     }
     
     /**
