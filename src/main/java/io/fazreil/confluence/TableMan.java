@@ -95,13 +95,13 @@ public class TableMan
     }
 
     /**
-     * This function takes the doc and construct it back to the form of a String
-     * @return docInString the xml document represented in String
+     * This function takes the Document and construct it back to the form of a String
+     * @param inDocument take the input parameter as a Document
+     * @return inDocument which is a String in the html format
      */
-    public String reconstructDocIntoString(){
-    	String docInString = null;
-    	
-    	return docInString;
+    public String reconstructDocIntoString(Document inDocument)
+    {    	
+    	return inDocument.html();
     }
 
     /**
