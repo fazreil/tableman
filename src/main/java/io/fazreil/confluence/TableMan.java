@@ -1,6 +1,8 @@
 package io.fazreil.confluence;
 
-import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -36,14 +38,24 @@ public class TableMan
     }
     
     /**
-     * This function takes table in html format in a form of a File to become a valid xml DOM
-     * @param tableInFile the File representing table for the class to slurp
+     * This function takes the  HTML table file path to become a valid DOM
+     * @param tableInFile representing the file path for which contains the table String 
      * @return doc the document after slurping
      */
-    public Document slurpTable(File tableInFile) {
-    	Document doc = null;
-    	return doc;
+    public Document slurpTable(Path tableInFile) 
+    {
+    	String tableInFileStr = null;
+		Document doc = null;	
+		try {
+			tableInFileStr = new String(Files.readAllBytes(tableInFile), StandardCharsets.UTF_8);
+			tableInFileStr = tableInFileStr.replace("\\\"", "\"");
+			doc = Jsoup.parse(tableInFileStr, "UTF-8", Parser.xmlParser());			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return doc;
     }
+
     /**
      * This function takes a node to be inserted into Document
      * @param nodeToInsert the node representing the new table row to insert into table
